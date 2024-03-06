@@ -12,12 +12,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from django.contrib.messages import constants as messages
 
 # Loading ENV
 env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=env_path)
+# load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'channels',
     'friend',
     'videocall',
+    'crispy_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -165,7 +167,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'account_login'
